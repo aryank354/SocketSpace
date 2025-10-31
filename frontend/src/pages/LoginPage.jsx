@@ -23,7 +23,11 @@ function LoginPage() {
               <div className="w-full max-w-md">
                 {/* HEADING TEXT */}
                 <div className="text-center mb-8">
-                  <MessageCircleIcon className="w-12 h-12 mx-auto text-slate-400 mb-4" />
+                  {/* --- MODIFICATION START --- */}
+                  <Link to="/" className="inline-block">
+                    <MessageCircleIcon className="w-12 h-12 mx-auto text-slate-400 mb-4 hover:text-cyan-400 transition-colors" />
+                  </Link>
+                  {/* --- MODIFICATION END --- */}
                   <h2 className="text-2xl font-bold text-slate-200 mb-2">Welcome Back</h2>
                   <p className="text-slate-400">Login to access to your account</p>
                 </div>
