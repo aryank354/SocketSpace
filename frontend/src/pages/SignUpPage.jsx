@@ -45,7 +45,7 @@ function SignUpPage() {
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         className="input"
-                        placeholder="John Doe"
+                        placeholder="Enter your Name"
                       />
                     </div>
                   </div>
@@ -61,7 +61,7 @@ function SignUpPage() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="input"
-                        placeholder="johndoe@gmail.com"
+                        placeholder="Enter your email address"
                       />
                     </div>
                   </div>

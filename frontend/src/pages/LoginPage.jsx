@@ -4,6 +4,7 @@ import BorderAnimatedContainer from "../components/BorderAnimatedContainer";
 import { MessageCircleIcon, MailIcon, LoaderIcon, LockIcon } from "lucide-react";
 import { Link } from "react-router";
 
+
 function LoginPage() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { login, isLoggingIn } = useAuthStore();
@@ -26,6 +27,7 @@ function LoginPage() {
                   {/* --- MODIFICATION START --- */}
                   <Link to="/" className="inline-block">
                     <MessageCircleIcon className="w-12 h-12 mx-auto text-slate-400 mb-4 hover:text-cyan-400 transition-colors" />
+                    
                   </Link>
                   {/* --- MODIFICATION END --- */}
                   <h2 className="text-2xl font-bold text-slate-200 mb-2">Welcome Back</h2>
@@ -45,7 +47,7 @@ function LoginPage() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="input"
-                        placeholder="johndoe@gmail.com"
+                        placeholder="Enter your email address"
                       />
                     </div>
                   </div>
