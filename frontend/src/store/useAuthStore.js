@@ -89,6 +89,8 @@ export const useAuthStore = create((set, get) => ({
 
     const socket = io(BASE_URL, {
       withCredentials: true, // this ensures cookies are sent with the connection
+      transports: ["websocket"], // This makes your WebSocket handshake cleaner.
+
     });
 
     socket.connect();
