@@ -93,13 +93,24 @@ cd socketspace
 ### 2. Environment Setup
 Create a `.env` file in the `backend` folder:
 ```env
-PORT=5001
+PORT=3000
 MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
+JWT_SECRET=your_super_secret_key
+NODE_ENV=development
+
+# Cloudinary (Image Uploads)
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
-NODE_ENV=development
+
+# Resend (Email Service)
+RESEND_API_KEY=re_123456789
+EMAIL_FROM=onboarding@resend.dev
+EMAIL_FROM_NAME=SocketSpace
+
+# Arcjet (Security & Rate Limiting)
+ARCJET_KEY=aj_123456789
+ARCJET_ENV=development
 ```
 
 ### 3. Install Dependencies
