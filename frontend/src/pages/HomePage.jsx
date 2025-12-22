@@ -96,7 +96,7 @@ function HomePage() {
 
       {/* Footer */}
       <footer className="text-center p-10 text-slate-500 border-t border-slate-700/50 relative z-10 space-y-3">
-        <p>
+        {/* <p>
           Made with <span className="text-pink-500">♥</span> by{" "}
           <a
             href="https://github.com/aryank354"
@@ -106,7 +106,7 @@ function HomePage() {
           >
             Aryan Kanojia
           </a>
-        </p>
+        </p> */}
         <p className="text-sm">&copy; 2025 SocketSpace. All rights reserved.</p>
       </footer>
     </div>
