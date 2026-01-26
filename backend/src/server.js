@@ -10,26 +10,37 @@ import { ENV } from "./lib/env.js";
 import { app, server } from "./lib/socket.js";
 
 const __dirname = path.resolve();
-
 const PORT = ENV.PORT || 3000;
 
-app.use(express.json({ limit: "5mb" })); // req.body
+// ───────────────────── Middlewares ─────────────────────
+app.use(express.json({ limit: "5mb" }));
 app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
 app.use(cookieParser());
 
+// ───────────────────── Public Health / Cron Route ─────────────────────
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    service: "backend-alive",
+    time: new Date().toISOString(),
+  });
+});
+
+// ───────────────────── API Routes ─────────────────────
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-// make ready for deployment
+// ───────────────────── Production Static Serve ─────────────────────
 if (ENV.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
   app.get("*", (_, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
   });
 }
 
-server.listen(PORT, () => {
-  console.log("Server running on port: " + PORT);
-  connectDB();
+// ───────────────────── Server Start ─────────────────────
+server.listen(PORT, async () => {
+  console.log(`Server running on port ${PORT}`);
+  await connectDB();
 });
